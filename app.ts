@@ -22,10 +22,31 @@ class Caesar {
         }
     }
 
-    addOwnAlphabet(alphabet:string): void {
+    public addOwnAlphabet(alphabet: string): void {
         this.alphabet = alphabet;
     }
 
+    public encrypt(sentence: string, key: number): string {
+        console.log(this.toNumAlphabet(sentence));
+        return "";
+    }
+
+    private toNumAlphabet(sentence: string): number[] {
+        let alphabet: string[];
+        let sentenceArray: string[];
+        let result: number[];
+        result = [];
+        sentenceArray = sentence.split('');
+        alphabet = this.alphabet.split('');
+        let i = 0;
+        alphabet.forEach((value) => {
+            if (sentenceArray[i] === value) {
+                result.push(i);
+            }
+            i++;
+        });
+        return result;
+    }
 
 }
 
