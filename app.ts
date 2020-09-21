@@ -2,6 +2,7 @@ class Caesar {
     private alphabet: string;
 
     constructor(lang: string) {
+
         switch (lang) {
             case "ru": {
                 this.alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
@@ -16,10 +17,12 @@ class Caesar {
                 break;
             }
             default: {
+                this.alphabet = "";
                 console.log("error")
-                return;
+               return
             }
         }
+        this.alphabet +=this.alphabet.toLowerCase();
     }
 
     public addOwnAlphabet(alphabet: string): void {
@@ -27,26 +30,34 @@ class Caesar {
     }
 
     public encrypt(sentence: string, key: number): string {
-        console.log(this.toNumAlphabet(sentence));
-        return "";
+        return (this.codeEncode(sentence,key));
+    }
+    public decrypt(sentence: string, key: number): string {
+        return this.codeEncode(sentence,-key);
     }
 
-    private toNumAlphabet(sentence: string): number[] {
-        let alphabet: string[];
-        let sentenceArray: string[];
-        let result: number[];
-        result = [];
-        sentenceArray = sentence.split('');
-        alphabet = this.alphabet.split('');
-        let i = 0;
-        alphabet.forEach((value) => {
-            if (sentenceArray[i] === value) {
-                result.push(i);
+    private codeEncode(sentence: string, key: number): string {
+
+        let letterQty = this.alphabet.length;
+        let retVal = "";
+        for (let i = 0; i < sentence.length; i++) {
+            let letter = sentence[i];
+            let index = this.alphabet.indexOf(letter);
+            console.log(index)
+            if (index < 0) {
+                retVal += letter;
+            } else {
+                let codeIndex = (letterQty + index + key) % letterQty;
+                retVal += this.alphabet[codeIndex];
             }
-            i++;
-        });
-        return result;
+        }
+        return retVal;
     }
-
 }
 
+
+
+//main
+let instance = new Caesar("en");
+alert( instance.encrypt("sraka", 3));
+alert(instance.decrypt("vudnd",3));
