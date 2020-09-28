@@ -22,7 +22,7 @@ class Caesar {
                return
             }
         }
-        this.alphabet +=this.alphabet.toLowerCase();
+        this.alphabet = this.alphabet.toLowerCase();
     }
 
     public addOwnAlphabet(alphabet: string): void {
@@ -37,13 +37,13 @@ class Caesar {
     }
 
     private codeEncode(sentence: string, key: number): string {
-
+        sentence = sentence.toLowerCase();
         let letterQty = this.alphabet.length;
         let retVal = "";
         for (let i = 0; i < sentence.length; i++) {
             let letter = sentence[i];
             let index = this.alphabet.indexOf(letter);
-            console.log(index)
+            // console.log(index)
             if (index < 0) {
                 retVal += letter;
             } else {
@@ -58,6 +58,6 @@ class Caesar {
 
 
 //main
-let instance = new Caesar("en");
-alert( instance.encrypt("sraka", 3));
-alert(instance.decrypt("vudnd",3));
+// let instance = new Caesar("en");
+// alert( instance.encrypt("sraka", 3));
+// alert(instance.decrypt("vudnd",3));

@@ -1,14 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="app.js"></script>
-    <title>Caesar Cipher</title>
+    <title>caesar cipher</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
+<form action="#">
 
+    <div class="select-box">
+        <label id="leng" for="select-box1" class="label select-box1"><span class="label-desc">Русский</span>
+        </label>
+        <div class="form-group">
+        <select id="select-box1" class="select">
+            <option value="ru">Русский</option>
+            <option value="en">Английский</option>
+            <option value="ua">Украинский (бета версия)</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label class="control control--radio">Зашифровать
+            <input type="radio" id="encrypt" value="e" name="radio" checked="checked"/>
+        </label>
+        </div>
+        <div class="form-group">
+        <label class="control control--radio">Расшифровать
+            <input type="radio" id="decrypt" value="d" name="radio"/>
+        </label>
+        </div>
+        <div class="form-group">
+            <label for="num">Сдвиг&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="number" value="1" placeholder="Значение" id="num">
+        </div>
+        <div class="form-group">
+            <label for="data"></label>
+            <textarea placeholder="Введите то, что будете шифровать" class="form-control" id="data" rows="3"></textarea>
+        </div>        <div class="form-group">
+            <label for="res"></label>
+            <textarea disabled placeholder="Результат" class="form-control" id="res" rows="3"></textarea>
+        </div>
+    </div>
+
+
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="./app.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
